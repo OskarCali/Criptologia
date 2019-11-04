@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formHome));
             this.grpBxHenon = new System.Windows.Forms.GroupBox();
             this.cmbBxMode = new System.Windows.Forms.ComboBox();
             this.btnShow = new System.Windows.Forms.Button();
@@ -46,7 +47,7 @@
             this.splitContInfo = new System.Windows.Forms.SplitContainer();
             this.richTxtBxSource = new System.Windows.Forms.RichTextBox();
             this.richTxtBxCompact = new System.Windows.Forms.RichTextBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContExtra = new System.Windows.Forms.SplitContainer();
             this.richTxtBxBinText = new System.Windows.Forms.RichTextBox();
             this.richTxtBxBinKey = new System.Windows.Forms.RichTextBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -63,10 +64,10 @@
             this.splitContInfo.Panel1.SuspendLayout();
             this.splitContInfo.Panel2.SuspendLayout();
             this.splitContInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContExtra)).BeginInit();
+            this.splitContExtra.Panel1.SuspendLayout();
+            this.splitContExtra.Panel2.SuspendLayout();
+            this.splitContExtra.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpBxHenon
@@ -81,7 +82,7 @@
             this.grpBxHenon.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpBxHenon.Location = new System.Drawing.Point(0, 70);
             this.grpBxHenon.Name = "grpBxHenon";
-            this.grpBxHenon.Size = new System.Drawing.Size(1257, 90);
+            this.grpBxHenon.Size = new System.Drawing.Size(1282, 90);
             this.grpBxHenon.TabIndex = 3;
             this.grpBxHenon.TabStop = false;
             this.grpBxHenon.Text = "Henon";
@@ -93,7 +94,7 @@
             this.cmbBxMode.Items.AddRange(new object[] {
             "Encriptar",
             "Desencriptar"});
-            this.cmbBxMode.Location = new System.Drawing.Point(279, 38);
+            this.cmbBxMode.Location = new System.Drawing.Point(228, 39);
             this.cmbBxMode.Name = "cmbBxMode";
             this.cmbBxMode.Size = new System.Drawing.Size(121, 24);
             this.cmbBxMode.TabIndex = 6;
@@ -103,7 +104,7 @@
             // 
             this.btnShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShow.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShow.Location = new System.Drawing.Point(1076, 29);
+            this.btnShow.Location = new System.Drawing.Point(1135, 29);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(115, 40);
             this.btnShow.TabIndex = 5;
@@ -115,7 +116,7 @@
             // 
             this.btnProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProcess.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcess.Location = new System.Drawing.Point(863, 29);
+            this.btnProcess.Location = new System.Drawing.Point(958, 29);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(145, 40);
             this.btnProcess.TabIndex = 4;
@@ -127,7 +128,7 @@
             // 
             this.lblFilename.AutoSize = true;
             this.lblFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilename.Location = new System.Drawing.Point(624, 39);
+            this.lblFilename.Location = new System.Drawing.Point(535, 40);
             this.lblFilename.Name = "lblFilename";
             this.lblFilename.Size = new System.Drawing.Size(114, 18);
             this.lblFilename.TabIndex = 3;
@@ -136,7 +137,7 @@
             // btnFile
             // 
             this.btnFile.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFile.Location = new System.Drawing.Point(477, 29);
+            this.btnFile.Location = new System.Drawing.Point(414, 27);
             this.btnFile.Name = "btnFile";
             this.btnFile.Size = new System.Drawing.Size(115, 40);
             this.btnFile.TabIndex = 2;
@@ -148,7 +149,7 @@
             // 
             this.radBtnFile.AutoSize = true;
             this.radBtnFile.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radBtnFile.Location = new System.Drawing.Point(131, 39);
+            this.radBtnFile.Location = new System.Drawing.Point(107, 39);
             this.radBtnFile.Name = "radBtnFile";
             this.radBtnFile.Size = new System.Drawing.Size(93, 27);
             this.radBtnFile.TabIndex = 1;
@@ -174,7 +175,7 @@
             this.lblTitle.Font = new System.Drawing.Font("MS Reference Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1257, 70);
+            this.lblTitle.Size = new System.Drawing.Size(1282, 70);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "HENON";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -189,11 +190,11 @@
             // toolStripCont.ContentPanel
             // 
             this.toolStripCont.ContentPanel.Controls.Add(this.splitContSide);
-            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1257, 510);
+            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1282, 494);
             this.toolStripCont.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripCont.Location = new System.Drawing.Point(0, 160);
             this.toolStripCont.Name = "toolStripCont";
-            this.toolStripCont.Size = new System.Drawing.Size(1257, 539);
+            this.toolStripCont.Size = new System.Drawing.Size(1282, 523);
             this.toolStripCont.TabIndex = 4;
             this.toolStripCont.Text = "toolStripContainer1";
             // 
@@ -207,7 +208,7 @@
             this.toolStripStLblCompact});
             this.statusStrip.Location = new System.Drawing.Point(0, 0);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1257, 29);
+            this.statusStrip.Size = new System.Drawing.Size(1282, 29);
             this.statusStrip.TabIndex = 1;
             // 
             // toolStripStLblAuthor
@@ -222,7 +223,7 @@
             // 
             this.toolStripStLblText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStLblText.Name = "toolStripStLblText";
-            this.toolStripStLblText.Size = new System.Drawing.Size(1099, 23);
+            this.toolStripStLblText.Size = new System.Drawing.Size(1124, 23);
             this.toolStripStLblText.Spring = true;
             this.toolStripStLblText.Text = "Cantidad texto";
             this.toolStripStLblText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -247,10 +248,10 @@
             // 
             // splitContSide.Panel2
             // 
-            this.splitContSide.Panel2.Controls.Add(this.splitContainer1);
+            this.splitContSide.Panel2.Controls.Add(this.splitContExtra);
             this.splitContSide.Panel2MinSize = 300;
-            this.splitContSide.Size = new System.Drawing.Size(1257, 510);
-            this.splitContSide.SplitterDistance = 845;
+            this.splitContSide.Size = new System.Drawing.Size(1282, 494);
+            this.splitContSide.SplitterDistance = 783;
             this.splitContSide.SplitterWidth = 5;
             this.splitContSide.TabIndex = 0;
             // 
@@ -269,8 +270,8 @@
             // splitContInfo.Panel2
             // 
             this.splitContInfo.Panel2.Controls.Add(this.richTxtBxCompact);
-            this.splitContInfo.Size = new System.Drawing.Size(845, 510);
-            this.splitContInfo.SplitterDistance = 249;
+            this.splitContInfo.Size = new System.Drawing.Size(783, 494);
+            this.splitContInfo.SplitterDistance = 166;
             this.splitContInfo.TabIndex = 0;
             // 
             // richTxtBxSource
@@ -279,7 +280,7 @@
             this.richTxtBxSource.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTxtBxSource.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxSource.Name = "richTxtBxSource";
-            this.richTxtBxSource.Size = new System.Drawing.Size(845, 249);
+            this.richTxtBxSource.Size = new System.Drawing.Size(783, 166);
             this.richTxtBxSource.TabIndex = 0;
             this.richTxtBxSource.Text = "";
             this.richTxtBxSource.TextChanged += new System.EventHandler(this.RichTxtBxSource_TextChanged);
@@ -291,27 +292,27 @@
             this.richTxtBxCompact.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxCompact.Name = "richTxtBxCompact";
             this.richTxtBxCompact.ReadOnly = true;
-            this.richTxtBxCompact.Size = new System.Drawing.Size(845, 257);
+            this.richTxtBxCompact.Size = new System.Drawing.Size(783, 324);
             this.richTxtBxCompact.TabIndex = 0;
             this.richTxtBxCompact.Text = "";
             // 
-            // splitContainer1
+            // splitContExtra
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContExtra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContExtra.Location = new System.Drawing.Point(0, 0);
+            this.splitContExtra.Name = "splitContExtra";
+            this.splitContExtra.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // splitContExtra.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.richTxtBxBinText);
+            this.splitContExtra.Panel1.Controls.Add(this.richTxtBxBinText);
             // 
-            // splitContainer1.Panel2
+            // splitContExtra.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.richTxtBxBinKey);
-            this.splitContainer1.Size = new System.Drawing.Size(407, 510);
-            this.splitContainer1.SplitterDistance = 256;
-            this.splitContainer1.TabIndex = 0;
+            this.splitContExtra.Panel2.Controls.Add(this.richTxtBxBinKey);
+            this.splitContExtra.Size = new System.Drawing.Size(494, 494);
+            this.splitContExtra.SplitterDistance = 167;
+            this.splitContExtra.TabIndex = 0;
             // 
             // richTxtBxBinText
             // 
@@ -320,7 +321,7 @@
             this.richTxtBxBinText.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxBinText.Name = "richTxtBxBinText";
             this.richTxtBxBinText.ReadOnly = true;
-            this.richTxtBxBinText.Size = new System.Drawing.Size(407, 256);
+            this.richTxtBxBinText.Size = new System.Drawing.Size(494, 167);
             this.richTxtBxBinText.TabIndex = 0;
             this.richTxtBxBinText.Text = "";
             // 
@@ -331,7 +332,7 @@
             this.richTxtBxBinKey.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxBinKey.Name = "richTxtBxBinKey";
             this.richTxtBxBinKey.ReadOnly = true;
-            this.richTxtBxBinKey.Size = new System.Drawing.Size(407, 250);
+            this.richTxtBxBinKey.Size = new System.Drawing.Size(494, 323);
             this.richTxtBxBinKey.TabIndex = 0;
             this.richTxtBxBinKey.Text = "";
             // 
@@ -339,10 +340,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1257, 699);
+            this.ClientSize = new System.Drawing.Size(1282, 683);
             this.Controls.Add(this.toolStripCont);
             this.Controls.Add(this.grpBxHenon);
             this.Controls.Add(this.lblTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1300, 730);
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -365,10 +368,10 @@
             this.splitContInfo.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContInfo)).EndInit();
             this.splitContInfo.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.splitContExtra.Panel1.ResumeLayout(false);
+            this.splitContExtra.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContExtra)).EndInit();
+            this.splitContExtra.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -394,7 +397,7 @@
         private System.Windows.Forms.RichTextBox richTxtBxCompact;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ComboBox cmbBxMode;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContExtra;
         private System.Windows.Forms.RichTextBox richTxtBxBinText;
         private System.Windows.Forms.RichTextBox richTxtBxBinKey;
     }

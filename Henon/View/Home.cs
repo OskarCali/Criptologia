@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Henon
 {
     public partial class formHome : Form
     {
-        Henon henon = new Henon();
+        private readonly Henon henon = new Henon();
         private int modo;
         private string text, binText, binCripto;
 
@@ -21,7 +15,7 @@ namespace Henon
         {
             InitializeComponent();
         }
-        
+
         private void FormHome_Load(object sender, EventArgs e)
         {
             lblFilename.Text = "";
@@ -81,41 +75,40 @@ namespace Henon
 
         private void BtnProcess_Click(object sender, EventArgs e)
         {
-            richTxtBxCompact.Text = "PROCESANDO...";
-            string cripto = "";
+            var cripto = "";
+
+            toolStripStLblText.Text = "";
+            toolStripStLblCompact.Text = "PROCESANDO...";
+            Application.DoEvents();
 
             switch (modo)
             {
                 case 0:
                     text = richTxtBxSource.Text;
-                    binText = text.ToBin(Encoding.UTF8);
+                    binText = text.TextToBin(Encoding.UTF8);
 
-                    binCripto = henon.igualar(binText, binCripto);
+                    binCripto = binCripto.ToEqualize(binText);
 
-                    for (int i = 0; i < binText.Length; i++)
-                    {
-                        cripto += binText[i] != binCripto[i] ? "1" : "0";
-                    }
+                    for (var i = 0; i < binText.Length; i++) cripto += binText[i] != binCripto[i] ? "1" : "0";
 
                     richTxtBxBinText.Text = binText;
                     richTxtBxBinKey.Text = binCripto;
                     richTxtBxCompact.Text = cripto;
-                    toolStripStLblCompact.Text = "encriptado(s)";
+                    toolStripStLblText.Text = text.Length.ToString();
+                    toolStripStLblCompact.Text = "caracter(es) encriptado(s)";
                     splitContSide.Panel2Collapsed = false;
                     break;
                 case 1:
                     binText = richTxtBxSource.Text;
-                    binCripto = henon.igualar(binText, binCripto);
+                    binCripto = binCripto.ToEqualize(binText);
 
-                    for (int i = 0; i < binText.Length; i++)
-                    {
-                        cripto += binText[i] != binCripto[i] ? "1" : "0";
-                    }
+                    for (var i = 0; i < binText.Length; i++) cripto += binText[i] != binCripto[i] ? "1" : "0";
 
                     richTxtBxBinText.Text = binCripto;
                     richTxtBxBinKey.Text = cripto;
-                    richTxtBxCompact.Text = cripto.ToText();
-                    toolStripStLblCompact.Text = "desencriptado(s)";
+                    richTxtBxCompact.Text = cripto.BinToText(Encoding.UTF8);
+                    toolStripStLblText.Text = binText.Length.ToString();
+                    toolStripStLblCompact.Text = "bit(s) desencriptado(s)";
                     splitContSide.Panel2Collapsed = false;
                     break;
             }
@@ -135,7 +128,7 @@ namespace Henon
 
         private void cmbBxMode_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ComboBox cmb = sender as ComboBox;
+            var cmb = sender as ComboBox;
             modo = cmb.SelectedIndex;
         }
     }
