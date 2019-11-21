@@ -1,6 +1,6 @@
 ﻿namespace Tent_Map
 {
-    partial class Form1
+    partial class formHome
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formHome));
             this.grpBxHenon = new System.Windows.Forms.GroupBox();
+            this.btnChart = new System.Windows.Forms.Button();
             this.cmbBxMode = new System.Windows.Forms.ComboBox();
             this.btnShow = new System.Windows.Forms.Button();
             this.btnProcess = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             this.splitContExtra = new System.Windows.Forms.SplitContainer();
             this.richTxtBxBinText = new System.Windows.Forms.RichTextBox();
             this.richTxtBxBinKey = new System.Windows.Forms.RichTextBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.grpBxHenon.SuspendLayout();
             this.toolStripCont.BottomToolStripPanel.SuspendLayout();
             this.toolStripCont.ContentPanel.SuspendLayout();
@@ -71,6 +73,7 @@
             // 
             // grpBxHenon
             // 
+            this.grpBxHenon.Controls.Add(this.btnChart);
             this.grpBxHenon.Controls.Add(this.cmbBxMode);
             this.grpBxHenon.Controls.Add(this.btnShow);
             this.grpBxHenon.Controls.Add(this.btnProcess);
@@ -81,10 +84,23 @@
             this.grpBxHenon.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpBxHenon.Location = new System.Drawing.Point(0, 70);
             this.grpBxHenon.Name = "grpBxHenon";
-            this.grpBxHenon.Size = new System.Drawing.Size(1326, 90);
+            this.grpBxHenon.Size = new System.Drawing.Size(1322, 90);
             this.grpBxHenon.TabIndex = 5;
             this.grpBxHenon.TabStop = false;
             this.grpBxHenon.Text = "Henon";
+            // 
+            // btnChart
+            // 
+            this.btnChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChart.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChart.Location = new System.Drawing.Point(851, 29);
+            this.btnChart.Name = "btnChart";
+            this.btnChart.Size = new System.Drawing.Size(115, 40);
+            this.btnChart.TabIndex = 7;
+            this.btnChart.Text = "GRAFICA";
+            this.btnChart.UseVisualStyleBackColor = true;
+            this.btnChart.Visible = false;
+            this.btnChart.Click += new System.EventHandler(this.btnChart_Click);
             // 
             // cmbBxMode
             // 
@@ -97,28 +113,31 @@
             this.cmbBxMode.Name = "cmbBxMode";
             this.cmbBxMode.Size = new System.Drawing.Size(121, 24);
             this.cmbBxMode.TabIndex = 6;
+            this.cmbBxMode.SelectedIndexChanged += new System.EventHandler(this.cmbBxMode_SelectedIndexChanged);
             // 
             // btnShow
             // 
             this.btnShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShow.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShow.Location = new System.Drawing.Point(1179, 29);
+            this.btnShow.Location = new System.Drawing.Point(1175, 29);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(115, 40);
             this.btnShow.TabIndex = 5;
             this.btnShow.Text = "MOSTRAR";
             this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // btnProcess
             // 
             this.btnProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProcess.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProcess.Location = new System.Drawing.Point(1002, 29);
+            this.btnProcess.Location = new System.Drawing.Point(998, 29);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(145, 40);
             this.btnProcess.TabIndex = 4;
             this.btnProcess.Text = "INICIO";
             this.btnProcess.UseVisualStyleBackColor = true;
+            this.btnProcess.Click += new System.EventHandler(this.BtnProcess_Click);
             // 
             // lblFilename
             // 
@@ -139,6 +158,7 @@
             this.btnFile.TabIndex = 2;
             this.btnFile.Text = "ARCHIVO";
             this.btnFile.UseVisualStyleBackColor = true;
+            this.btnFile.Click += new System.EventHandler(this.BtnFile_Click);
             // 
             // radBtnFile
             // 
@@ -150,6 +170,7 @@
             this.radBtnFile.TabIndex = 1;
             this.radBtnFile.Text = "Archivo";
             this.radBtnFile.UseVisualStyleBackColor = true;
+            this.radBtnFile.CheckedChanged += new System.EventHandler(this.RadBtnFile_CheckedChanged);
             // 
             // radBtnText
             // 
@@ -161,6 +182,7 @@
             this.radBtnText.TabIndex = 0;
             this.radBtnText.Text = "Texto";
             this.radBtnText.UseVisualStyleBackColor = true;
+            this.radBtnText.CheckedChanged += new System.EventHandler(this.RadBtnText_CheckedChanged);
             // 
             // lblTitle
             // 
@@ -168,9 +190,9 @@
             this.lblTitle.Font = new System.Drawing.Font("MS Reference Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1326, 70);
+            this.lblTitle.Size = new System.Drawing.Size(1322, 70);
             this.lblTitle.TabIndex = 4;
-            this.lblTitle.Text = "HENON";
+            this.lblTitle.Text = "TENT MAP";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // toolStripCont
@@ -183,11 +205,11 @@
             // toolStripCont.ContentPanel
             // 
             this.toolStripCont.ContentPanel.Controls.Add(this.splitContSide);
-            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1326, 455);
+            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1322, 484);
             this.toolStripCont.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripCont.Location = new System.Drawing.Point(0, 160);
             this.toolStripCont.Name = "toolStripCont";
-            this.toolStripCont.Size = new System.Drawing.Size(1326, 509);
+            this.toolStripCont.Size = new System.Drawing.Size(1322, 513);
             this.toolStripCont.TabIndex = 6;
             this.toolStripCont.Text = "toolStripContainer1";
             // 
@@ -201,7 +223,7 @@
             this.toolStripStLblCompact});
             this.statusStrip.Location = new System.Drawing.Point(0, 0);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1326, 29);
+            this.statusStrip.Size = new System.Drawing.Size(1322, 29);
             this.statusStrip.TabIndex = 1;
             // 
             // toolStripStLblAuthor
@@ -210,12 +232,13 @@
             this.toolStripStLblAuthor.Name = "toolStripStLblAuthor";
             this.toolStripStLblAuthor.Size = new System.Drawing.Size(53, 23);
             this.toolStripStLblAuthor.Text = "Autor";
+            this.toolStripStLblAuthor.Click += new System.EventHandler(this.ToolStripStLblAuthor_Click);
             // 
             // toolStripStLblText
             // 
             this.toolStripStLblText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStLblText.Name = "toolStripStLblText";
-            this.toolStripStLblText.Size = new System.Drawing.Size(1168, 23);
+            this.toolStripStLblText.Size = new System.Drawing.Size(1164, 23);
             this.toolStripStLblText.Spring = true;
             this.toolStripStLblText.Text = "Cantidad texto";
             this.toolStripStLblText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -242,8 +265,8 @@
             // 
             this.splitContSide.Panel2.Controls.Add(this.splitContExtra);
             this.splitContSide.Panel2MinSize = 300;
-            this.splitContSide.Size = new System.Drawing.Size(1326, 455);
-            this.splitContSide.SplitterDistance = 809;
+            this.splitContSide.Size = new System.Drawing.Size(1322, 484);
+            this.splitContSide.SplitterDistance = 761;
             this.splitContSide.SplitterWidth = 5;
             this.splitContSide.TabIndex = 0;
             // 
@@ -262,8 +285,8 @@
             // splitContInfo.Panel2
             // 
             this.splitContInfo.Panel2.Controls.Add(this.richTxtBxCompact);
-            this.splitContInfo.Size = new System.Drawing.Size(809, 455);
-            this.splitContInfo.SplitterDistance = 152;
+            this.splitContInfo.Size = new System.Drawing.Size(761, 484);
+            this.splitContInfo.SplitterDistance = 160;
             this.splitContInfo.TabIndex = 0;
             // 
             // richTxtBxSource
@@ -272,9 +295,10 @@
             this.richTxtBxSource.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTxtBxSource.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxSource.Name = "richTxtBxSource";
-            this.richTxtBxSource.Size = new System.Drawing.Size(809, 152);
+            this.richTxtBxSource.Size = new System.Drawing.Size(761, 160);
             this.richTxtBxSource.TabIndex = 0;
             this.richTxtBxSource.Text = "";
+            this.richTxtBxSource.TextChanged += new System.EventHandler(this.RichTxtBxSource_TextChanged);
             // 
             // richTxtBxCompact
             // 
@@ -283,7 +307,7 @@
             this.richTxtBxCompact.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxCompact.Name = "richTxtBxCompact";
             this.richTxtBxCompact.ReadOnly = true;
-            this.richTxtBxCompact.Size = new System.Drawing.Size(809, 299);
+            this.richTxtBxCompact.Size = new System.Drawing.Size(761, 320);
             this.richTxtBxCompact.TabIndex = 0;
             this.richTxtBxCompact.Text = "";
             // 
@@ -301,8 +325,8 @@
             // splitContExtra.Panel2
             // 
             this.splitContExtra.Panel2.Controls.Add(this.richTxtBxBinKey);
-            this.splitContExtra.Size = new System.Drawing.Size(512, 455);
-            this.splitContExtra.SplitterDistance = 153;
+            this.splitContExtra.Size = new System.Drawing.Size(556, 484);
+            this.splitContExtra.SplitterDistance = 161;
             this.splitContExtra.TabIndex = 0;
             // 
             // richTxtBxBinText
@@ -312,7 +336,7 @@
             this.richTxtBxBinText.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxBinText.Name = "richTxtBxBinText";
             this.richTxtBxBinText.ReadOnly = true;
-            this.richTxtBxBinText.Size = new System.Drawing.Size(512, 153);
+            this.richTxtBxBinText.Size = new System.Drawing.Size(556, 161);
             this.richTxtBxBinText.TabIndex = 0;
             this.richTxtBxBinText.Text = "";
             // 
@@ -323,21 +347,25 @@
             this.richTxtBxBinKey.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxBinKey.Name = "richTxtBxBinKey";
             this.richTxtBxBinKey.ReadOnly = true;
-            this.richTxtBxBinKey.Size = new System.Drawing.Size(512, 298);
+            this.richTxtBxBinKey.Size = new System.Drawing.Size(556, 319);
             this.richTxtBxBinKey.TabIndex = 0;
             this.richTxtBxBinKey.Text = "";
             // 
-            // Form1
+            // formHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1326, 669);
+            this.ClientSize = new System.Drawing.Size(1322, 673);
             this.Controls.Add(this.toolStripCont);
             this.Controls.Add(this.grpBxHenon);
             this.Controls.Add(this.lblTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.MinimumSize = new System.Drawing.Size(1340, 720);
+            this.Name = "formHome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormHome_Load);
             this.grpBxHenon.ResumeLayout(false);
             this.grpBxHenon.PerformLayout();
             this.toolStripCont.BottomToolStripPanel.ResumeLayout(false);
@@ -386,6 +414,8 @@
         private System.Windows.Forms.SplitContainer splitContExtra;
         private System.Windows.Forms.RichTextBox richTxtBxBinText;
         private System.Windows.Forms.RichTextBox richTxtBxBinKey;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button btnChart;
     }
 }
 
